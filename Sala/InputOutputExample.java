@@ -1,3 +1,4 @@
+package Sala;
 public class InputOutputExample{
     public static void main (String[] args){
          float value = 99.9f;
