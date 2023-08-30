@@ -1,3 +1,4 @@
+package AprendendoJava;
 import java.util.Scanner;
 
 public class AngleConversion {
