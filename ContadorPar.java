@@ -1,5 +1,3 @@
-package AprendendoJava;
-
 import java.util.Scanner;
 
 public class ContadorPar{
@@ -17,5 +15,7 @@ public class ContadorPar{
                 }
             }
             System.out.println("Quantidade de pares: "+contPar);
+
+            scan.close();
         }
     }

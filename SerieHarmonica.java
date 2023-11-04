@@ -1,5 +1,3 @@
-package AprendendoJava;
-
 import java.util.Scanner;
 
 public class SerieHarmonica{
@@ -15,5 +13,7 @@ public class SerieHarmonica{
             }
 
             System.out.println(("Valor de H(n): " + SerieHarmonica));
+
+            scan.close();
         }
     }
