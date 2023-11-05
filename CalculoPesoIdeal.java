@@ -2,25 +2,39 @@ import java.util.Scanner;
 
 public class CalculoPesoIdeal {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Digite a altura (em metros): ");
-        double altura = input.nextDouble();
+        System.out.print("Digite seu peso (em kg): ");
+        double peso = scanner.nextDouble();
 
-        System.out.print("Digite o sexo (M para masculino, F para feminino): ");
-        char sexo = input.next().charAt(0);
+        System.out.print("Digite sua altura (em m): ");
+        double altura = scanner.nextDouble();
 
-        boolean isMasculino = (sexo == 'M' || sexo == 'm');
+        System.out.print("Digite seu gênero (h para homem, m para mulher): ");
+        char genero = scanner.next().charAt(0);
 
-        double pesoIdeal;
-        if (isMasculino) {
-            pesoIdeal = (72.7 * altura) - 58;
-        } else {
-            pesoIdeal = (62.1 * altura) - 44.7;
-        }
+        double imc = calcularIMC(peso, altura);
+        double pesoIdeal = calcularPesoIdeal(altura, genero);
 
+        System.out.printf("Seu IMC é: %.2f%n", imc);
         System.out.printf("O peso ideal é: %.2f kg%n", pesoIdeal);
-        
-        input.close();
+
+        scanner.close();
+    }
+
+    public static double calcularIMC(double peso, double altura) {
+        return peso / (altura * altura);
+    }
+
+    public static double calcularPesoIdeal(double altura, char genero) {
+        if (genero == 'h' || genero == 'H') {
+            return (72.7 * altura) - 58;
+        } else if (genero == 'm' || genero == 'M') {
+            return (62.1 * altura) - 44.7;
+        } else {
+            System.out.println("Gênero inválido. Use h para homem ou m para mulher.");
+            return 0;
+        }
+    
     }
 }
