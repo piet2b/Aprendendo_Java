@@ -19,9 +19,9 @@ public class CalculoFatorial {
 
     public static long calcularFatorial(int n) {
         if (n == 0 || n == 1) {
-            return 1; // Caso base: fatorial de 0 ou 1 é 1
+            return 1; 
         } else {
-            return n * calcularFatorial(n - 1); // Chamada recursiva
+            return n * calcularFatorial(n - 1);
         }
     }
 
