@@ -4,21 +4,33 @@ public class SequenciaFibonacci {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("Digite a quantidade de termos da sequência de Fibonacci que você deseja ver: ");
+        System.out.print("Digite o número de termos de Fibonacci que você deseja: ");
         int n = scanner.nextInt();
-        
-        int primeiroTermo = 0;
-        int segundoTermo = 1;
-        
-        System.out.println("Os primeiros " + n + " termos da sequência de Fibonacci são:");
-        
+
+        System.out.println("Sequência de Fibonacci com " + n + " termos:");
         for (int i = 0; i < n; i++) {
-            System.out.print(primeiroTermo + " ");
-            int proximoTermo = primeiroTermo + segundoTermo;
-            primeiroTermo = segundoTermo;
-            segundoTermo = proximoTermo;
+            int termo = calcularFibonacci(i);
+            System.out.print(termo + " ");
         }
-        
+
         scanner.close();
+    }
+
+    public static int calcularFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        int termoAnterior = 0;
+        int termoAtual = 1;
+        int resultado = 0;
+
+        for (int i = 2; i <= n; i++) {
+            resultado = termoAnterior + termoAtual;
+            termoAnterior = termoAtual;
+            termoAtual = resultado;
+        }
+
+        return resultado;
     }
 }

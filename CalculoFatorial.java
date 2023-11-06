@@ -3,18 +3,27 @@ import java.util.Scanner;
 public class CalculoFatorial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Digite um número para calcular o fatorial: ");
+
+        System.out.print("Digite um número inteiro positivo: ");
         int numero = scanner.nextInt();
-        
-        long fatorial = 1; 
-     
-        for (int i = 1; i <= numero; i++) {
-            fatorial *= i;
+
+        if (numero < 0) {
+            System.out.println("O fatorial não está definido para números negativos.");
+        } else {
+            long resultado = calcularFatorial(numero);
+            System.out.println("O fatorial de " + numero + " é " + resultado);
         }
-        
-        System.out.println("O fatorial de " + numero + " é " + fatorial);
-        
+
         scanner.close();
     }
+
+    public static long calcularFatorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1; // Caso base: fatorial de 0 ou 1 é 1
+        } else {
+            return n * calcularFatorial(n - 1); // Chamada recursiva
+        }
+    }
+
+
 }
